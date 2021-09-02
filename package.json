@@ -1,0 +1,27 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "NodeJS - Express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zendy199x/NodeJS-Express.git"
+  },
+  "author": "Zendy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zendy199x/NodeJS-Express/issues"
+  },
+  "homepage": "https://github.com/zendy199x/NodeJS-Express#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.0.4",
+    "nodemon": "^2.0.12"
+  }
+}
