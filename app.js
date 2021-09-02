@@ -1,11 +1,16 @@
 const express = require("express");
+const connectDB = require('./config/db')
+require("dotenv").config();
 
 // start app
 const app = express();
 
 // start express middleware
-app.use(express.json())
+app.use(express.json());
 
-const PORT = 5000;
+// connect database
+connectDB()
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+const PORT = process.env.PORT;
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

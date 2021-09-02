@@ -1,0 +1,3 @@
+{
+  "mongoURI": "mongodb+srv://zendy:zendy@express.gihgv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}
