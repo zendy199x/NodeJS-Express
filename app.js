@@ -29,12 +29,12 @@ app.use(express.json());
 connectDB();
 
 // Some basic routers can include a separate file in the routes folder
-app.get("/", (req, res) => res.render("index"));
-app.get("/about", (req, res) => res.render("about"));
+app.get("/", (_req, res) => res.render("index"));
+app.get("/about", (_req, res) => res.render("about"));
 
 // use router
 app.use("/posts", posts);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

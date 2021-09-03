@@ -3,5 +3,11 @@
     <h4>{{title}}</h4>
     <p>{{text}}</p>
     <a href="/posts/edit/{{_id}}" class="btn btn-dark btn-block mb-2">Change</a>
+    <form action="/posts/{{_id}}?_method=DELETE" method="POST">
+      <input type="hidden" name="_method" value="DELETE" />
+      <input type="submit" value="Delete" class="btn btn-danger btn-block" />
+    </form>
   </div>
+{{else}}
+  <p>There are no posts to display</p>
 {{/each}}
