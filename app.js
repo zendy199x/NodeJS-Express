@@ -1,5 +1,6 @@
 const express = require("express");
 const exphds = require("express-handlebars");
+const bodyParser = require("body-parser");
 const connectDB = require("./config/db");
 require("dotenv").config();
 
@@ -12,6 +13,10 @@ const app = express();
 // start Handlebars middleware
 app.engine("handlebars", exphds());
 app.set("view engine", "handlebars");
+
+// start body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // start express middleware
 app.use(express.json());
