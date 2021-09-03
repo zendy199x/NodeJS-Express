@@ -4,6 +4,12 @@ const router = express.Router();
 // load model
 const Post = require("../models/Post");
 
+// show all posts
+router.get("/", async (req, res) => {
+  const posts = await Post.find().lean().sort({ date: -1 });
+  res.render("posts/index", { posts });
+});
+
 // show form
 router.get("/add", (_req, res) => {
   res.render(`posts/add`);
