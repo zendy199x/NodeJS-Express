@@ -1,6 +1,7 @@
 const express = require("express");
 const exphds = require("express-handlebars");
 const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
 const connectDB = require("./config/db");
 require("dotenv").config();
 
@@ -17,6 +18,9 @@ app.set("view engine", "handlebars");
 // start body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// start override middleware
+app.use(methodOverride("_method"));
 
 // start express middleware
 app.use(express.json());

@@ -5,7 +5,7 @@ const router = express.Router();
 const Post = require("../models/Post");
 
 // show all posts
-router.get("/", async (req, res) => {
+router.get("/", async (_req, res) => {
   const posts = await Post.find().lean().sort({ date: -1 });
   res.render("posts/index", { posts });
 });
@@ -30,6 +30,19 @@ router.post("/", async (req, res) => {
     await newPost.save();
     res.redirect("/posts");
   }
+});
+
+// display a form for users to change post
+router.get("/edit/:id", async (req, res) => {
+  const post = await Post.findOne({ _id: req.params.id }).lean();
+  res.render(`posts/edit`, { post });
+});
+
+// update change to DB
+router.put("/:id", async (req, res) => {
+  const { title, text } = req.body;
+  await Post.findOneAndUpdate({ _id: req.params.id }, { title, text });
+  res.redirect(`/posts`);
 });
 
 module.exports = router;
